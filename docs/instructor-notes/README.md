@@ -1,1 +1,1 @@
-# README PLEASE
+# Instructor notes for web development

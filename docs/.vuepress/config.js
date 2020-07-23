@@ -1,10 +1,13 @@
 const { description } = require('../../package')
 
 module.exports = {
+  markdown:{
+    lineNumbers: true,
+  },
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Vuepress Docs Boilerplate',
+  title: 'JSAC Curriculum Lessons',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -27,45 +30,26 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
+    smoothScroll: true,
     repo: '',
     editLinks: false,
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,
     nav: [
-      {
-        text: 'Guide',
-        link: '/guide/',
-      },
-      {
-        text: 'Config',
-        link: '/config/'
-      },
-      {
-        text: 'Instructor Notes',
-        link: '/instructor-notes/'
-      }
+      { text: 'Home', link: '/' },
+      { text: 'About', link: '/about/'},
+      { text: 'Instructor Notes', link: '/instructor-notes/' }
     ],
     sidebar: {
-      '/guide/': [
-        {
-          title: 'Guide',
-          collapsable: false,
-          children: [
-            '',
-            'using-vue',
-          ]
-        }
-      ],
       '/instructor-notes/': [
         {
           title: 'Instructor Notes',
           collapsable: false,
           children:[
             '',
-            'wk-01',
-            'wk-02',
-            'test'
+            'wk-01-setup',
+            'wk-02-vars-and-functions',
           ]
         }
       ],

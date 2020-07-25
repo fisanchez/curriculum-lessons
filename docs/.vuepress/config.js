@@ -21,7 +21,7 @@ module.exports = {
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
   ],
 
   /**
@@ -30,6 +30,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
+    displayAllHeaders: true, // Default: false
     smoothScroll: true,
     repo: '',
     editLinks: false,
@@ -39,9 +40,19 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'About', link: '/about/'},
-      { text: 'Instructor Notes', link: '/instructor-notes/' }
+      { text: 'Student Notes', link: '/student-notes/'},
     ],
     sidebar: {
+      '/student-notes/':[
+        {
+          title: 'Variables and Functions I',
+          collapsable: false,
+          children: [
+            '',
+            'wk-02-vars-functions',
+          ]
+        }
+      ],
       '/instructor-notes/': [
         {
           title: 'Instructor Notes',
@@ -50,6 +61,7 @@ module.exports = {
             '',
             'wk-01-setup',
             'wk-02-vars-and-functions',
+            'wk-03-the-dom-01.md'
           ]
         }
       ],

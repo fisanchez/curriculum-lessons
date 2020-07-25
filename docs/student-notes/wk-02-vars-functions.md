@@ -28,7 +28,7 @@ functions are actions. Think of verbs when naming your functions
   - One or more things your function expects to be given.
 
 ```js
-function write(pencil)
+function write(pencil)ssss
 ```
 
 ::: tip

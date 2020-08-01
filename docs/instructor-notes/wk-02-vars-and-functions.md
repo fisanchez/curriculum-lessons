@@ -107,6 +107,13 @@ console.log("Hello my name is" + my_name + ", my favorite color is" + favorite_c
 
 convert(100) 
 //> 37.778
+
+/* ---------SOLUTION BELOW------------- */
+
+function convert(fahrenheit){
+  console.log( (fahrenheit - 32) * (5/9) )
+}
+
 ```
 
 

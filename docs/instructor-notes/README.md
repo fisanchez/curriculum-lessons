@@ -23,7 +23,7 @@ lesson: List of content that will be covered today
 ---
 ```
 
-## Template for each lesson topic:
+## Template for each lesson topic
 
 ```yml
 ---

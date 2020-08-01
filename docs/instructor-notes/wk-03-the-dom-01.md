@@ -68,14 +68,14 @@ getElementsByClassName will be skipped this week because it involves looping thr
 :::
 
 ::: details solution
-```js
-// Getting the correct input object
-var nameObject = document.getElementById("name")
+  ```js
+    // Getting the correct input object
+    var nameObject = document.getElementById("name")
 
-// Getting the value of your element - which is the name in this case.
-var name = nameObject.value
-console.log(name)
-```
+    // Getting the value of your element - which is the name in this case.
+    var name = nameObject.value
+    console.log(name)
+  ```
 :::
 
 #### Checkpoint

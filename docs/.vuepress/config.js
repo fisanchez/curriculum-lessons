@@ -2,7 +2,10 @@ const { description } = require('../../package')
 
 module.exports = {
   markdown:{
-    lineNumbers: true,
+    lineNumbers: false,
+    extendMarkdown: md => {
+      md.use(require('markdown-it-task-lists'), {enabled: true})
+    }
   },
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
@@ -31,6 +34,7 @@ module.exports = {
    */
   themeConfig: {
     smoothScroll: true,
+    logo: 'https://static.wixstatic.com/media/b27321_7bd0b0b0993143d1aace7c1509dde80c~mv2.png/v1/fill/w_638,h_290,al_c,q_85,usm_0.66_1.00_0.01/jsac-color.webp',
     repo: '',
     editLinks: false,
     docsDir: '',
@@ -44,23 +48,26 @@ module.exports = {
     sidebar: {
       '/student-notes/':[
         {
-          title: 'Variables and Functions I',
-          collapsable: false,
+          title: 'Student Notes',
+          collapsable: true,
           children: [
             '',
             'wk-02-vars-functions',
+            'wk-03-dom-01',
+            'wk-04-arrays-objects-01'
           ]
         }
       ],
       '/instructor-notes/': [
         {
           title: 'Instructor Notes',
-          collapsable: false,
+          collapsable: true,
           children:[
             '',
             'wk-01-setup',
             'wk-02-vars-and-functions',
-            'wk-03-the-dom-01'
+            'wk-03-the-dom-01',
+            'wk-04-arrays-objects-01'
           ]
         }
       ],

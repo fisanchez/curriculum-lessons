@@ -42,7 +42,6 @@ module.exports = {
     lastUpdated: false,
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'About', link: '/about/'},
       { text: 'Student Notes', link: '/student-notes/'},
     ],
     sidebar: {

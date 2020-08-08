@@ -1,8 +1,8 @@
 ---
 home: true
 heroImage: null
-heroText: Title
-tagline:  Super
+heroText: JSAC Note Center
+tagline:  Source for all your note needs
 actionText: Student Notes →
 actionLink: /student-notes/
 footer:

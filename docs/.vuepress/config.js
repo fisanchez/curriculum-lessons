@@ -53,7 +53,8 @@ module.exports = {
             '',
             'wk-02-vars-functions',
             'wk-03-dom-01',
-            'wk-04-arrays-objects-01'
+            'wk-04-arrays-objects-01',
+            'wk06-loops-01'
           ]
         }
       ],

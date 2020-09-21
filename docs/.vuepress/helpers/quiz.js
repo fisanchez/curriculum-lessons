@@ -3,7 +3,7 @@ const quizes = {
     questions: [
       {
         text: "Who's that pokemon?",
-        responces: [
+        options: [
           { text: "pikachu" },
           { text: "snorlax" },
           { text: "raichu" },
@@ -11,12 +11,12 @@ const quizes = {
         ],
       },
       {
-        text: "Who's that not pokeman?",
-        responces: [
-          { text: "pikachu", correct: true },
-          { text: "snorlax" },
-          { text: "raichu" },
-          { text: "piglet" },
+        text: "Who's that DBZ character?",
+        options: [
+          { text: "Goku", correct: true },
+          { text: "Frizza" },
+          { text: "Master Roshi" },
+          { text: "Kirrin" },
         ],
       },
     ],

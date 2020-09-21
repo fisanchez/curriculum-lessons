@@ -4,15 +4,15 @@
     <h1>VueQuestions</h1>
   </header>
   <body class="bg-color-white">
-    <h2 class="title">Who's that Pokemon!?</h2>
+    <h2 class="title">{{questions[number].text}}</h2>
     <div class="options-container">
-      <div class="option">a. Pikachu</div>
-      <div class="option">b. Pikachu</div>
-      <div class="option">c. Pikachu</div>
-      <div class="option">d. Pikachu</div>
+      <div class="option" v-for="option in questions[number].options">{{option.text}}</div>
     </div>
   </body>
-  <footer class="bg-color-gray"></footer>
+  <footer class="bg-color-gray">
+    <button class="next" v-on:click="number += 1">Next</button>
+    <button class="back" v-on:click="number -= 1">Back</button>
+  </footer>
 </quiz>
 </template>
 
@@ -73,7 +73,9 @@ import quizes from "../../helpers/quiz";
 export default {
   data() {
     return {
-      question: null
+      number: 0,
+      quiz: quizes["variable1"],
+      questions: quizes["variable1"].questions
     };
   }
 };

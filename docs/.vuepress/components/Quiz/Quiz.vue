@@ -18,11 +18,39 @@
   </body>
   <footer class="bg-color-gray">
     <answer v-if="showExplanation">{{questions[questionIndex].explanation}}</answer>
-    <button v-if="questionIndex> 0" class="back" v-on:click="questionIndex-= 1">Back</button>
-    <button class="next" v-on:click="questionIndex -= 1">Next</button>
+    <button v-if="questionIndex > 0" class="back" v-on:click="questionIndex-= 1">Back</button>
+    <button class="button submit" @click="submitAnswer">Submit</button>
+    <button class="button next" v-on:click="questionIndex -= 1">Next</button>
   </footer>
 </quiz>
 </template>
+
+<script>
+import quizes from "../../helpers/quiz";
+
+export default {
+  methods: {
+    selectOption(index) {
+      this.userSelected = true;
+      this.questionSelected = index;
+    },
+    submitAnswer() {
+      this.showExplanation = true;
+    }
+  },
+  data() {
+    return {
+      questionIndex: 0,
+      quiz: quizes["variable1"],
+      questions: quizes["variable1"].questions,
+      questionSelected: 0,
+      userSubmitted: false,
+      userSelected: false,
+      showExplanation: false
+    };
+  }
+};
+</script>
 
 <style>
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
@@ -91,30 +119,3 @@ quiz {
   height: 100vh;
 }
 </style>
-
-<script>
-import quizes from "../../helpers/quiz";
-
-export default {
-  methods: {
-    selectOption(index) {
-      this.userSelected = true;
-      this.questionSelected = index;
-    },
-    submitAnswer() {
-      this.questionIndex += 1;
-      this.showExplanation = true;
-    }
-  },
-  data() {
-    return {
-      questionIndex: 0,
-      quiz: quizes["variable1"],
-      questions: quizes["variable1"].questions,
-      questionSelected: 0,
-      userSubmitted: false,
-      userSelected: false
-    };
-  }
-};
-</script>

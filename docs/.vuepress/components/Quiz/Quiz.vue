@@ -7,10 +7,12 @@
     <h2 class="title">{{questions[questionIndex].text}}</h2>
     <div class="options-container">
       <div
-        class="option highlight"
-        v-for="option in questions[questionIndex].options"
-        v-bind:class="{'is-selected': userSelected }"
-        v-on:click="selectOption(option)"
+        class="option"
+        v-for="(option, index) in questions[questionIndex].options"
+        :key="index"
+        v-bind:class="{'is-selected': userSelected && ( questionSelected ==
+        index ) }"
+        @click="selectOption(index)"
       >{{option.text}}</div>
     </div>
   </body>
@@ -27,12 +29,8 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
 
 .is-selected {
-  border-color: rgba(black, 0.25);
-  background-color: white;
-}
-
-.highlight {
-  border: 300px;
+  border-color: rgba(black, 0.5);
+  background-color: white !important;
 }
 
 .answer-correct {
@@ -99,7 +97,10 @@ import quizes from "../../helpers/quiz";
 
 export default {
   methods: {
-    selectOption(question) {},
+    selectOption(index) {
+      this.userSelected = true;
+      this.questionSelected = index;
+    },
     submitAnswer() {
       this.questionIndex += 1;
       this.showExplanation = true;
@@ -110,6 +111,7 @@ export default {
       questionIndex: 0,
       quiz: quizes["variable1"],
       questions: quizes["variable1"].questions,
+      questionSelected: 0,
       userSubmitted: false,
       userSelected: false
     };

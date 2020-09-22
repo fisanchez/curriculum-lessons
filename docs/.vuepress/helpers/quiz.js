@@ -9,6 +9,7 @@ const quizes = {
           { text: "raichu" },
           { text: "piglet", correct: true },
         ],
+        explanation: "The correct answer is this",
       },
       {
         text: "Who's that DBZ character?",
@@ -18,6 +19,7 @@ const quizes = {
           { text: "Master Roshi" },
           { text: "Kirrin" },
         ],
+        explanation: "The correct is that",
       },
     ],
   },

@@ -4,14 +4,20 @@
     <h1>VueQuestions</h1>
   </header>
   <body class="bg-color-white">
-    <h2 class="title">{{questions[number].text}}</h2>
+    <h2 class="title">{{questions[questionIndex].text}}</h2>
     <div class="options-container">
-      <div class="option" v-for="option in questions[number].options">{{option.text}}</div>
+      <div
+        class="option highlight"
+        v-for="option in questions[questionIndex].options"
+        v-bind:class="{'is-selected': userSelected }"
+        v-on:click="selectOption(option)"
+      >{{option.text}}</div>
     </div>
   </body>
   <footer class="bg-color-gray">
-    <button class="next" v-on:click="number += 1">Next</button>
-    <button class="back" v-on:click="number -= 1">Back</button>
+    <answer v-if="showExplanation">{{questions[questionIndex].explanation}}</answer>
+    <button v-if="questionIndex> 0" class="back" v-on:click="questionIndex-= 1">Back</button>
+    <button class="next" v-on:click="questionIndex -= 1">Next</button>
   </footer>
 </quiz>
 </template>
@@ -19,6 +25,19 @@
 <style>
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+.is-selected {
+  border-color: rgba(black, 0.25);
+  background-color: white;
+}
+
+.highlight {
+  border: 300px;
+}
+
+.answer-correct {
+  background-color: red;
+}
 .bg-color-white {
   background-color: white;
 }
@@ -33,7 +52,7 @@
 }
 
 .option {
-  border-radius: 290486px;
+  border-radius: 30rem;
   padding: 9px 18px;
   margin: 0 18px;
   margin-bottom: 12px;
@@ -42,6 +61,14 @@
   background-color: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.85);
   border: transparent 1px solid;
+}
+
+.option:active {
+  transform: scaleX(0.9);
+}
+
+.option:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .title {
@@ -71,11 +98,20 @@ quiz {
 import quizes from "../../helpers/quiz";
 
 export default {
+  methods: {
+    selectOption(question) {},
+    submitAnswer() {
+      this.questionIndex += 1;
+      this.showExplanation = true;
+    }
+  },
   data() {
     return {
-      number: 0,
+      questionIndex: 0,
       quiz: quizes["variable1"],
-      questions: quizes["variable1"].questions
+      questions: quizes["variable1"].questions,
+      userSubmitted: false,
+      userSelected: false
     };
   }
 };

@@ -2,24 +2,28 @@ const quizes = {
   variable1: {
     questions: [
       {
-        text: "Who's that pokemon?",
+        text: "What is a variable?",
         options: [
-          { text: "pikachu" },
-          { text: "snorlax" },
-          { text: "raichu" },
-          { text: "piglet", correct: true },
+          { text: "A box that can store so many things" },
+          { text: "A small box that can hold one thing", correct: true },
+          { text: "A type of number" },
         ],
-        explanation: "The correct answer is this",
+        explanation: `
+        These are small labeled boxes with one data type in it - we are starting with strings.
+        `,
       },
       {
-        text: "Who's that DBZ character?",
+        text: "How do we create a variable?",
         options: [
-          { text: "Goku", correct: true },
-          { text: "Frizza" },
-          { text: "Master Roshi" },
-          { text: "Kirrin" },
+          { text: "`var smallBox = 'buzz lightyear'`", correct: true },
+          { text: "variable smallBox" },
+          { text: "smallbox = new variable" },
+          { text: "new smallBox = 'buzz lightyear'" },
         ],
-        explanation: "The correct is that",
+        explanation: `
+        Correct answer: var smallBox = 'buzz lightyear'
+        We define variables with the keyword 'var'
+        `,
       },
     ],
   },

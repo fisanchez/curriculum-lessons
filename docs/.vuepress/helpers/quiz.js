@@ -15,14 +15,18 @@ const quizes = {
       {
         text: "How do we create a variable?",
         options: [
-          { text: "`var smallBox = 'buzz lightyear'`", correct: true },
+          { text: "var smallBox = buzz lightyear", correct: true },
           { text: "variable smallBox" },
           { text: "smallbox = new variable" },
           { text: "new smallBox = 'buzz lightyear'" },
         ],
         explanation: `
-        Correct answer: var smallBox = 'buzz lightyear'
-        We define variables with the keyword 'var'
+        The format we write variables in is: 
+        {typeOfData} {nameOfData} = {data}
+
+        typeOfData is var
+        nameOfData is smallBox
+        data is "buzz lightyear"
         `,
       },
     ],

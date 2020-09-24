@@ -3,7 +3,10 @@
   <header class="bg-color-gray">
     <h1>VueQuestions</h1>
   </header>
-  <body class="bg-color-white">
+  <body class="bg-color-white" v-if="endOfQuestions">
+    <h3>End of quiz</h3>
+  </body>
+  <body class="bg-color-white" v-if="!endOfQuestions">
     <h2 class="title">{{questions[questionIndex].text}}</h2>
     <div class="options-container">
       <div
@@ -11,16 +14,18 @@
         v-for="(option, index) in questions[questionIndex].options"
         :key="index"
         v-bind:class="{'is-selected': userSelected && ( questionSelected ==
-        index ) }"
+        index ), 'answer-correct': userSubmitted && option.correct}"
         @click="selectOption(index)"
       >{{option.text}}</div>
     </div>
   </body>
-  <footer class="bg-color-gray">
+  <explanation>
     <answer v-if="showExplanation">{{questions[questionIndex].explanation}}</answer>
+  </explanation>
+  <footer class="bg-color-gray">
     <button v-if="questionIndex > 0" class="back" v-on:click="questionIndex-= 1">Back</button>
-    <button class="button submit" @click="submitAnswer">Submit</button>
-    <button class="button next" v-on:click="questionIndex -= 1">Next</button>
+    <button v-if="!userSubmitted" class="button submit" @click="submitAnswer">Submit</button>
+    <button v-if="userSubmitted && !endOfQuestions" class="button next" @click="nextQuestion">Next</button>
   </footer>
 </quiz>
 </template>
@@ -35,7 +40,19 @@ export default {
       this.questionSelected = index;
     },
     submitAnswer() {
+      this.userSubmitted = true;
       this.showExplanation = true;
+    },
+    nextQuestion() {
+      if (this.questions[this.questionIndex + 1] !== undefined) {
+        this.questionIndex += 1;
+        this.userSubmitted = false;
+        this.userSelected = false;
+        this.showExplanation = false;
+      } else {
+        this.endOfQuestions = true;
+        this.showExplanation = false;
+      }
     }
   },
   data() {
@@ -46,7 +63,8 @@ export default {
       questionSelected: 0,
       userSubmitted: false,
       userSelected: false,
-      showExplanation: false
+      showExplanation: false,
+      endOfQuestions: false
     };
   }
 };
@@ -62,7 +80,7 @@ export default {
 }
 
 .answer-correct {
-  background-color: red;
+  background-color: #3eb07c !important;
 }
 .bg-color-white {
   background-color: white;

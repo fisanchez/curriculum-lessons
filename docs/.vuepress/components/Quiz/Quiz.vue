@@ -34,6 +34,9 @@
 import quizes from "../../helpers/quiz";
 
 export default {
+  props: {
+    quizName: String
+  },
   methods: {
     selectOption(index) {
       this.userSelected = true;
@@ -58,8 +61,8 @@ export default {
   data() {
     return {
       questionIndex: 0,
-      quiz: quizes["variable1"],
-      questions: quizes["variable1"].questions,
+      quiz: quizes[this.quizName],
+      questions: quizes[this.quizName].questions,
       questionSelected: 0,
       userSubmitted: false,
       userSelected: false,
